@@ -1,8 +1,10 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import MemberCreate from "@/views/MemberCreate.vue"; // 회원가입 컴포넌트 경로
-import LoginPage from "@/views/LoginPage.vue"; // 회원가입 컴포넌트 경로
-import MemberList from "@/views/MemberList.vue"; // 회원가입 컴포넌트 경로
-import SimpleWebSocket from "@/views/SimpleWebSocket.vue"; // 회원가입 컴포넌트 경로
+import MemberCreate from "@/views/MemberCreate.vue";
+import LoginPage from "@/views/LoginPage.vue";
+import MemberList from "@/views/MemberList.vue";
+import SimpleWebSocket from "@/views/SimpleWebSocket.vue";
+import StompChatPage from "@/views/StompChatPage.vue";
+import GroupChattingList from "@/views/GroupChattingList.vue";
 
 const routes = [
   {
@@ -24,6 +26,16 @@ const routes = [
     path: "/simple/chat",
     name: "SimpleWebSocket",
     component: SimpleWebSocket,
+  },
+  {
+    path: "/chatpage/:roomId",
+    name: "StompChatPage",
+    component: StompChatPage,
+  },
+  {
+    path: "/groupchatting/list",
+    name: "GroupChattingList",
+    component: GroupChattingList,
   },
 ];
 

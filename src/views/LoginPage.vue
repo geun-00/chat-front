@@ -25,6 +25,7 @@
 </template>
 <script>
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 export default {
   data() {
@@ -46,7 +47,13 @@ export default {
       );
 
       const token = response.data.accessToken; // 로그인 성공 시 토큰 받기
+      const role = jwtDecode(token).role; // 토큰에서 역할 정보 추출
+      const email = jwtDecode(token).sub; // 토큰에서 이메일 정보 추출
+
       localStorage.setItem("token", token); // 로컬 스토리지에 토큰 저장
+      localStorage.setItem("role", role); // 역할 정보 저장
+      localStorage.setItem("email", email); // 이메일 정보 저장
+
       window.location.href = "/"; // 로그인 후 홈으로 이동
     },
   },
